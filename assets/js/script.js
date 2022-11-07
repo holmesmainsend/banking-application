@@ -2,44 +2,18 @@ const usernameEl = document.getElementById("username-el")
 const passwordEl = document.getElementById("password-el")
 const loginEl = document.getElementById("login-el")
 
-class HashTable {
-    constructor() {
-        this.values = {}
-        this.length = 0
-        this.size = 0
-    }
 
-    hasher(username) {
-        return username.toString().length % this.size
-    }
-    
-    insert(username, value) {
-        const hash = this.hasher(username)
-        if (!this.values.hasOwnProperty(hash)) {
-          this.values[hash] = {}
-        }
-        if (!this.values[hash].hasOwnProperty(username)) {
-           this.length++
-        }
-        this.values[hash][username] = value
-    }
-    
-      search(username) {
-        const hash = this.hasher(username)
-        if (this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(username)) {
-            return this.values[hash][username]
-        } else {
-            return null
-        }
-    }
-}
 
-const hashTable = new HashTable()
-hashTable.insert("Alice", "Mypassword123!")
-hashTable.insert("Steve", "Gorockcats77@1")
-hashTable.insert("Joe", "Thisisnotap@ssw0rd")
 
-console.log(hashTable.search("Alice"))
+
+
+
+
+
+
+
+
+
 
 
 
