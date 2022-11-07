@@ -9,11 +9,8 @@ class hashTable {
     }
     
     testHash(password) {
-        let hash = 0
-        for(let i = 0; i < password.length; i++) {
-            hash += password.charCodeAt(i)
-        }
-        return hash % this.table.length
+        const array = 
+        salt = ""
     }
 
     set(password, value) {
@@ -23,9 +20,18 @@ class hashTable {
     }
 }
 
+
+const initialSalt = new Uint32Array(100)
+modifiedSalt = self.crypto.getRandomValues(initialSalt)
+for(let i = 0; i < modifiedSalt.length; i++) {
+    modifiedSalt[i] %= 128
+    console.log(modifiedSalt[i])
+}
+
+
 const hash1 = new hashTable()
-hash1.set("Alice", "Mypassphrase123")
-console.log(hash1.testHash("Alice"))
+//hash1.set("Alice", "Mypassphrase123")
+//console.log(hash1.testHash("Alice"))
 
 
 loginEl.addEventListener("click", function() {
