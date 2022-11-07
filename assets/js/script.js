@@ -2,23 +2,46 @@ const usernameEl = document.getElementById("username-el")
 const passwordEl = document.getElementById("password-el")
 const loginEl = document.getElementById("login-el")
 
-// class hashTable {
-//     constructor() {
-//         this.table = new Array(127)
-//         this.size = 0
-//     }
-    
-//     testHash(password) {
-//         const array = 
-//         salt = ""
-//     }
+class HashTable {
+    constructor() {
+        this.values = {}
+        this.length = 0
+        this.size = 0
+    }
 
-//     set(password, value) {
-//         const index = this.testHash(password)
-//         this.table[index] = [password, value]
-//         this.size++
-//     }
-// }
+    hasher(username) {
+        return username.toString().length % this.size
+    }
+    
+    insert(username, value) {
+        const hash = this.hasher(username)
+        if (!this.values.hasOwnProperty(hash)) {
+          this.values[hash] = {}
+        }
+        if (!this.values[hash].hasOwnProperty(username)) {
+           this.length++
+        }
+        this.values[hash][username] = value
+    }
+    
+      search(username) {
+        const hash = this.hasher(username)
+        if (this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(username)) {
+            return this.values[hash][username]
+        } else {
+            return null
+        }
+    }
+}
+
+const hashTable = new HashTable()
+hashTable.insert("Alice", "Mypassword123!")
+hashTable.insert("Steve", "Gorockcats77@1")
+hashTable.insert("Joe", "Thisisnotap@ssw0rd")
+
+console.log(hashTable.search("Alice"))
+
+
 
 function seasoning(password) {
     const initialSalt = new Uint32Array(200)
@@ -41,12 +64,9 @@ function seasoning(password) {
     return password
 }
 
-console.log(seasoning("Mypassword123!"))
+// console.log(seasoning("Mypassword123!"))
 
 
-// const hash1 = new hashTable()
-// hash1.set("Alice", "Mypassphrase123")
-// console.log(hash1.testHash("Alice"))
 
 
 loginEl.addEventListener("click", function() {
