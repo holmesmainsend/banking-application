@@ -20,13 +20,27 @@ class hashTable {
     }
 }
 
-
-const initialSalt = new Uint32Array(100)
-modifiedSalt = self.crypto.getRandomValues(initialSalt)
-for(let i = 0; i < modifiedSalt.length; i++) {
-    modifiedSalt[i] %= 128
-    console.log(modifiedSalt[i])
+function seasoning(password) {
+    const initialSalt = new Uint32Array(100)
+    modifiedSalt = self.crypto.getRandomValues(initialSalt)
+    let finalSalt = []
+    finalSaltCounter = 0
+    for(let i = 0; i < modifiedSalt.length; i++) {
+        modifiedSalt[i] %= 128
+        if((modifiedSalt[i] < 123 && modifiedSalt[i] > 96) ||
+            (modifiedSalt[i] < 91 && modifiedSalt[i] > 64) || 
+            (modifiedSalt[i] < 58 && modifiedSalt[i] > 47)) {
+                finalSalt[finalSaltCounter] = modifiedSalt[i]
+                finalSaltCounter++
+        }
+    }
+    for (let i = 0; i < finalSaltCounter; i++) {
+        password += finalSalt[i]
+    }
+    return password
 }
+
+console.log(seasoning("Mypassword123!"))
 
 
 const hash1 = new hashTable()
