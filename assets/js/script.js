@@ -2,33 +2,6 @@ const usernameEl = document.getElementById("username-el")
 const passwordEl = document.getElementById("password-el")
 const loginEl = document.getElementById("login-el")
 
-class HashTable {
-    constructor(username, password) {
-        this.username = username
-        this.hash = password + "bananas"
-    }
-}
-
-let user1 = new HashTable("Alice", "Mypassword123!")
-console.log(user1.hash)
-
-let user2 = new HashTable("Steve", "Thisisthepassword@#")
-console.log(user2.hash)
-
-let user3 = new HashTable("Joe", "Metsamillion67")
-console.log(user3.hash)
-
-
-
-
-
-
-
-
-
-
-
-
 function seasoning(password) {
     const initialSalt = new Uint32Array(200)
     modifiedSalt = self.crypto.getRandomValues(initialSalt)
@@ -50,8 +23,25 @@ function seasoning(password) {
     return password
 }
 
-// console.log(seasoning("Mypassword123!"))
+function hasher(salt) {
+    return "choco" + salt
+}
 
+class HashTable {
+    constructor(username, password) {
+        this.username = username
+        this.hash = hasher(seasoning(password))
+    }
+}
+
+let user1 = new HashTable("Alice", "Mypassword123!")
+console.log(user1.hash)
+
+let user2 = new HashTable("Steve", "Thisisthepassword@#")
+console.log(user2.hash)
+
+let user3 = new HashTable("Joe", "Metsamillion67")
+console.log(user3.hash)
 
 
 
