@@ -10,16 +10,13 @@ let piString = "3141592653589793238462643383279502884197169399375105820974944592
 function seasoning(username, password) {
     let userDigits = 1
     let modifiedSalt = []
-
     for(let i = 0; i < username.length; i++) {
         userDigits += username.charCodeAt(i) * username.length
     }
-    
     for(let i = 0; i < 4000; i++) {
-        modifiedSalt[i] = parseInt(piString.substring(i, i + 1)) * userDigits
+        modifiedSalt[i] = parseInt(piString.substring(i, i + 1)) + i * userDigits
     }
     console.log(modifiedSalt)
-
     let finalSalt = []
     finalSaltCounter = 0
     for(let i = 0; i < modifiedSalt.length; i++) {
@@ -52,13 +49,13 @@ function hasher(salt) {
     }
     for(let i = 0; i < midHashArr.length; i++) {
         singleVal = midHashArr[i] % 128
-            if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)) {
-                finalHashArr[finalHashCounter] = String.fromCharCode(singleVal)
-                finalHashCounter++
-            } else if(singleVal < 58 && singleVal > 47) {
-                finalHashArr[finalHashCounter] = singleVal
-                finalHashCounter++
-            }
+        if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)) {
+            finalHashArr[finalHashCounter] = String.fromCharCode(singleVal)
+            finalHashCounter++
+        } else if(singleVal < 58 && singleVal > 47) {
+            finalHashArr[finalHashCounter] = singleVal
+            finalHashCounter++
+        }
     }
     let i = 0
     while(finalHash.length < 250) {
