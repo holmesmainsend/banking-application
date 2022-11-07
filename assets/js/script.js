@@ -3,7 +3,7 @@ const passwordEl = document.getElementById("password-el")
 const loginEl = document.getElementById("login-el")
 
 function seasoning(password) {
-    const initialSalt = new Uint32Array(200)
+    const initialSalt = new Uint32Array(1000)
     modifiedSalt = self.crypto.getRandomValues(initialSalt)
     let finalSalt = []
     finalSaltCounter = 0
@@ -24,7 +24,36 @@ function seasoning(password) {
 }
 
 function hasher(salt) {
-    return "choco" + salt
+    let hashVal = 0
+    let midHashArr = []
+    let finalHash = ""
+    let finalHashCounter = 0
+    let finalHashArr = []
+    for(let i = 0; i < salt.length; i++) {
+        let val = salt.charCodeAt(i)
+        hashVal = ((hashVal << 6) - hashVal) + val
+        hashVal = hashVal & hashVal
+        midHashArr[i] = Math.abs(hashVal)
+    }
+    for(let i = 0; i < midHashArr.length; i++) {
+        singleVal = midHashArr[i] % 128
+            if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)) {
+                finalHashArr[finalHashCounter] = String.fromCharCode(singleVal)
+                finalHashCounter++
+            } else if(singleVal < 58 && singleVal > 47) {
+                finalHashArr[finalHashCounter] = singleVal
+                finalHashCounter++
+            }
+    }
+    let i = 0
+    while(finalHash.length < 200) {
+        finalHash += finalHashArr[i]
+        i++
+        if(finalHash.length == 200) {
+            break
+        }
+    }
+    return finalHash
 }
 
 class HashTable {
@@ -42,6 +71,9 @@ console.log(user2.hash)
 
 let user3 = new HashTable("Joe", "Metsamillion67")
 console.log(user3.hash)
+
+let user4 = new HashTable("Jeffrey", "117el8tion")
+console.log(user4.hash)
 
 
 
