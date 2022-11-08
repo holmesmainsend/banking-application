@@ -83,8 +83,6 @@ let user3 = new HashTable("Joe", "Metsamillion67")
 let user4 = new HashTable("Jeffrey", "117el8tion")
 // console.log(user4.hash)
 
-
-
 loginEl.addEventListener("click", function() {
     let returningUsername = usernameEl.value.trim()
     let returningPassword = passwordEl.value.trim()
