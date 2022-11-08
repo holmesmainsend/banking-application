@@ -10,13 +10,15 @@ let piString = "3141592653589793238462643383279502884197169399375105820974944592
 function seasoning(username, password) {
     let userDigits = 1
     let modifiedSalt = []
+    let modifiedSaltCounter = 0
     for(let i = 0; i < username.length; i++) {
         userDigits += username.charCodeAt(i) * username.length
     }
-    for(let i = 0; i < 5000; i++) {
-        modifiedSalt[i] = parseInt(piString.substring(i, i + 1)) + i * userDigits
+    for(let i = userDigits % 128; i < 3000; i++) {
+        modifiedSalt[modifiedSaltCounter] = parseInt(piString.substring(i, i + 1)) + i * userDigits
+        modifiedSaltCounter++
     }
-    console.log(modifiedSalt)
+    // console.log(modifiedSalt)
     let finalSalt = []
     finalSaltCounter = 0
     for(let i = 0; i < modifiedSalt.length; i++) {
@@ -57,7 +59,7 @@ function hasher(salt) {
         }
     }
     let i = 0
-    while(finalHash.length < 256) {
+    while(finalHash.length < 270) {
         finalHash += finalHashArr[i]
         i++
     }
@@ -73,6 +75,11 @@ class HashTable {
 
 let user1 = new HashTable("Alice", "Mypassword123!")
 console.log(user1.hash)
+if(user1.hash === "MlVc57xJyTmbRo50FWb53C49ieGZ4948KuMXjQNxidQ57DXXhsAWO56gMJVZFtM52h48eoaXZdTq49YNehqdaGsjgcNFvFsKPA54L54fvpXMOeh52QtNmbVejt57PVt56jYkT53ynIlfrAmQlXl49QUcnTC52j53vA52uORfvC56cMAI48oFYovK54SCOHHWa52LwkrKWPShXpXopyOZarPGXAFpVtcQLsDjpAxkXqVJ55iYd55uuxQl55rKGilz") {
+    console.log("Correct password entered")
+} else {
+    console.log("Incorrect username or password")
+}
 
 let user2 = new HashTable("Steve", "Thisisthepassword@#")
 console.log(user2.hash)
