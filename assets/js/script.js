@@ -13,7 +13,7 @@ function seasoning(username, password) {
     for(let i = 0; i < username.length; i++) {
         userDigits += username.charCodeAt(i) * username.length
     }
-    for(let i = 0; i < 4000; i++) {
+    for(let i = 0; i < 5000; i++) {
         modifiedSalt[i] = parseInt(piString.substring(i, i + 1)) + i * userDigits
     }
     console.log(modifiedSalt)
@@ -44,7 +44,6 @@ function hasher(salt) {
     for(let i = 0; i < salt.length; i++) {
         let val = salt.charCodeAt(i)
         hashVal = ((hashVal << 6) - hashVal) + val
-        hashVal = hashVal & hashVal
         midHashArr[i] = Math.abs(hashVal)
     }
     for(let i = 0; i < midHashArr.length; i++) {
@@ -58,11 +57,11 @@ function hasher(salt) {
         }
     }
     let i = 0
-    while(finalHash.length < 250) {
+    while(finalHash.length < 256) {
         finalHash += finalHashArr[i]
         i++
     }
-    return finalHash.substring(0, 200)
+    return finalHash.substring(0, 256)
 }
 
 class HashTable {
