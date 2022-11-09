@@ -78,12 +78,12 @@ class HashTable {
         for(let i = 0; i < password.length; i++) {
             passString += password.charCodeAt(i)
         }
-        let passBitString = ""
+        let plainBitString = ""
         for(let i = 0; i < passString.length; i++) {
-            passBitString += parseInt(passString.substring(i, i + 1)) % 2
+            plainBitString += parseInt(passString.substring(i, i + 1)) % 2
         }
         // Add LFSR here
-        sessionStorage.setItem(username, passBitString)
+        sessionStorage.setItem(username, plainBitString)
     }
 }
 
