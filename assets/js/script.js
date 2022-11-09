@@ -73,8 +73,17 @@ class HashTable {
         this.hash = hasher(seasoning(username, password))
     }
 
-    sessionKey(password) {
-        return password + "555"
+    sessionKeyGenerator(username, password) {
+        let passString = ""
+        for(let i = 0; i < password.length; i++) {
+            passString += password.charCodeAt(i)
+        }
+        let passBitString = ""
+        for(let i = 0; i < passString.length; i++) {
+            passBitString += parseInt(passString.substring(i, i + 1)) % 2
+        }
+        // Add LFSR here
+        sessionStorage.setItem(username, passBitString)
     }
 }
 
@@ -87,13 +96,17 @@ let user3 = new HashTable("Joe", "Metsamillion67")
 let user4 = new HashTable("Jeffrey", "117el8tion")
 // console.log(user4.hash)
 
+
+// Fix so that works for any user, not just user1
+// Checks first if any user exists with that username
+// Returns error if no user exists with that username
 loginEl.addEventListener("click", function() {
     let returningUsername = usernameEl.value.trim()
     let returningPassword = passwordEl.value.trim()
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         failedLoginEl.innerText = ""
         console.log("Correct password entered")
-        console.log(user1.sessionKey(returningPassword))
+        user1.sessionKeyGenerator(returningUsername, returningPassword)
     } else {
         failedLoginEl.innerText = "Incorrect username and/or password"
     }
