@@ -82,8 +82,21 @@ class HashTable {
         for(let i = 0; i < passString.length; i++) {
             plainBitArr[i] = parseInt(passString.substring(i, i + 1)) % 2
         }
-        // Add LFSR here
-        sessionStorage.setItem(username, plainBitArr)
+
+        // Random initial bits provided by https://www.random.org/bytes/
+        let keyBits = [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1]
+        let finalKeyStream = []
+        let cipherBitArr = []
+        let initialKeyBitXOR = 0
+        for(let i = 0; i < 333; i++) {
+            initialKeyBitXOR = keyBits[2] ^ keyBits[keyBits.length - 3]
+            keyBits.unshift(initialKeyBitXOR)
+            finalKeyStream[i] = keyBits.pop()
+        }
+        for (let i = 0; i < plainBitArr.length; i++) {
+            cipherBitArr[i] = plainBitArr[i] ^ finalKeyStream[i + (finalKeyStream.length - plainBitArr.length)]
+        }
+        sessionStorage.setItem(username, cipherBitArr)
     }
 }
 
