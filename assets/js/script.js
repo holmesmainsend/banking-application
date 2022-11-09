@@ -72,6 +72,10 @@ class HashTable {
         this.username = username
         this.hash = hasher(seasoning(username, password))
     }
+
+    sessionKey(password) {
+        return password + "555"
+    }
 }
 
 let user1 = new HashTable("Alice", "Mypassword123!")
@@ -89,6 +93,7 @@ loginEl.addEventListener("click", function() {
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         failedLoginEl.innerText = ""
         console.log("Correct password entered")
+        console.log(user1.sessionKey(returningPassword))
     } else {
         failedLoginEl.innerText = "Incorrect username and/or password"
     }
