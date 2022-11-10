@@ -88,7 +88,7 @@ class HashTable {
         let finalKeyStream = []
         let cipherBitArr = []
         let initialKeyBitXOR = 0
-        for(let i = 0; i < 333; i++) {
+        for(let i = 0; i < 600; i++) {
             initialKeyBitXOR = keyBits[2] ^ keyBits[keyBits.length - 3]
             keyBits.unshift(initialKeyBitXOR)
             finalKeyStream[i] = keyBits.pop()
