@@ -130,7 +130,7 @@ loginEl.addEventListener("click", function() {
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         console.log("Correct password entered")
         user1.sessionKeyGenerator(returningUsername, returningPassword)
-        pageHTML = `<h1>Welcome back, ${returningUsername}</h1>`
+        document.body.innerHTML = `<h1>Welcome back, ${returningUsername}</h1>`
     } else {
         failedLoginEl.innerText = "Incorrect username and/or password"
     }
