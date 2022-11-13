@@ -141,7 +141,7 @@ loginEl.addEventListener("click", function() {
         <br>
         <br>
         <br>
-        <button type="button" id="balance-el">Check Balance</button>
+        <button type="button" id="balance-el">CHECK BALANCE</button>
         <br>
         <br>
         <p>Make Withdrawal:</p>
@@ -149,7 +149,7 @@ loginEl.addEventListener("click", function() {
         <button type="button" id="withdrawal-el">SUBMIT</button>
         <br>
         <br>
-        <button type="button" id="logout-el">Logout</button>
+        <button type="button" id="logout-el">LOGOUT</button>
         `
         const depositVal = document.getElementById("deposit-val")
         const depositEl = document.getElementById("deposit-el")
