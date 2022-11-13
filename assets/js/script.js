@@ -132,6 +132,7 @@ loginEl.addEventListener("click", function() {
         console.log("Correct password entered")
         usernameEl.value = ""
         user1.sessionKeyGenerator(returningUsername, returningPassword)
+        // let sessionKey = sessionStorage.getItem("Alice")
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
         <button type="button" id="deposit-el">Make Deposit</button>
