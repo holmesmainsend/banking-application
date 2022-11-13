@@ -1,5 +1,7 @@
 // Change all variables from let to const where possible
 
+// Fix so that automatically checks for session key upon page refresh, no repeat login necessary
+
 document.body.innerHTML = `
 <h1>Login Page</h1>
 <br>
@@ -174,8 +176,13 @@ loginEl.addEventListener("click", function() {
         })
         withdrawalEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                user1.balance -= parseFloat(withdrawalVal.value)
-                withdrawalVal.value = ""
+                if(user1.balance < withdrawalVal.value) {
+                    console.log("insufficient funds")
+                    withdrawalVal.value = ""
+                } else {
+                    user1.balance -= parseFloat(withdrawalVal.value)
+                    withdrawalVal.value = ""
+                }
             } else {
                 console.log("Request denied")
             }
