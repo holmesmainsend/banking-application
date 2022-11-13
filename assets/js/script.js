@@ -159,6 +159,8 @@ loginEl.addEventListener("click", function() {
         const withdrawalVal = document.getElementById("withdrawal-val")
         const withdrawalEl = document.getElementById("withdrawal-el")
         const logoutEl = document.getElementById("logout-el")
+
+        // Change console logs to appear on HTML page instead
         depositEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
                 user1.balance += parseFloat(depositVal.value)
