@@ -131,27 +131,36 @@ loginEl.addEventListener("click", function() {
     let returningUsername = usernameEl.value.trim()
     let returningPassword = passwordEl.value.trim()
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
-        console.log("Correct password entered")
         usernameEl.value = ""
         user1.sessionKeyGenerator(returningUsername, returningPassword)
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
-        <button type="button" id="deposit-el">Make Deposit</button>
+        <p>Make Deposit:</p>
+        <input type="number" id="deposit-val" min="0">
+        <button type="button" id="deposit-el">SUBMIT</button>
+        <br>
+        <br>
         <br>
         <button type="button" id="balance-el">Check Balance</button>
         <br>
-        <button type="button" id="withdrawal-el">Make Withdrawal</button>
+        <br>
+        <p>Make Withdrawal:</p>
+        <input type="number" id="withdrawal-val" min="0">
+        <button type="button" id="withdrawal-el">SUBMIT</button>
+        <br>
         <br>
         <button type="button" id="logout-el">Logout</button>
         `
+        const depositVal = document.getElementById("deposit-val")
         const depositEl = document.getElementById("deposit-el")
         const balanceEl = document.getElementById("balance-el")
+        const withdrawalVal = document.getElementById("withdrawal-val")
         const withdrawalEl = document.getElementById("withdrawal-el")
         const logoutEl = document.getElementById("logout-el")
         depositEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                console.log("Successful deposit")
-                user1.balance += 150
+                user1.balance += parseFloat(depositVal.value)
+                depositVal.value = ""
             } else {
                 console.log("Request denied")
             }
@@ -165,7 +174,8 @@ loginEl.addEventListener("click", function() {
         })
         withdrawalEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                console.log("Successful withdrawal")
+                user1.balance -= parseFloat(withdrawalVal.value)
+                withdrawalVal.value = ""
             } else {
                 console.log("Request denied")
             }
