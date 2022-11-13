@@ -131,6 +131,7 @@ loginEl.addEventListener("click", function() {
     let returningPassword = passwordEl.value.trim()
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         console.log("Correct password entered")
+        usernameEl.value = ""
         user1.sessionKeyGenerator(returningUsername, returningPassword)
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
