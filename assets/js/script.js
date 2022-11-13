@@ -83,6 +83,7 @@ class HashTable {
     constructor(username, password) {
         this.username = username
         this.hash = hasher(seasoning(username, password))
+        this.balance = 0
     }
 
     sessionKeyGenerator(username, password) {
@@ -153,7 +154,7 @@ loginEl.addEventListener("click", function() {
         })
         balanceEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                console.log("Successful balance check")
+                console.log(user1.balance)
             } else {
                 console.log("Request denied")
             }
