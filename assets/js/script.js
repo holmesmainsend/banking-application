@@ -109,6 +109,7 @@ class HashTable {
             cipherBitArr[i] = plainBitArr[i] ^ finalKeyStream[i + (finalKeyStream.length - plainBitArr.length)]
         }
         sessionStorage.setItem(username, cipherBitArr)
+        return sessionStorage.getItem(username)
     }
 }
 
@@ -132,7 +133,6 @@ loginEl.addEventListener("click", function() {
         console.log("Correct password entered")
         usernameEl.value = ""
         user1.sessionKeyGenerator(returningUsername, returningPassword)
-        // let sessionKey = sessionStorage.getItem("Alice")
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
         <button type="button" id="deposit-el">Make Deposit</button>
@@ -145,13 +145,25 @@ loginEl.addEventListener("click", function() {
         const withdrawalEl = document.getElementById("withdrawal-el")
         const logoutEl = document.getElementById("logout-el")
         depositEl.addEventListener("click", function() {
-            console.log("Making deposit...")
+            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
+                console.log("Successful deposit")
+            } else {
+                console.log("Request denied")
+            }
         })
         balanceEl.addEventListener("click", function() {
-            console.log("Checking balance...")
+            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
+                console.log("Successful balance check")
+            } else {
+                console.log("Request denied")
+            }
         })
         withdrawalEl.addEventListener("click", function() {
-            console.log("Making withdrawal...")
+            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
+                console.log("Successful withdrawal")
+            } else {
+                console.log("Request denied")
+            }
         })
         logoutEl.addEventListener("click", function() {
             sessionStorage.clear()
