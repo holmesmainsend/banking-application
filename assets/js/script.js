@@ -137,10 +137,12 @@ loginEl.addEventListener("click", function() {
         <button type="button" id="deposit-el">Make Deposit</button>
         <button type="button" id="balance-el">Check Balance</button>
         <button type="button" id="withdrawal-el">Make Withdrawal</button>
+        <button type="button" id="logout-el">Logout</button>
         `
         const depositEl = document.getElementById("deposit-el")
         const balanceEl = document.getElementById("balance-el")
         const withdrawalEl = document.getElementById("withdrawal-el")
+        const logoutEl = document.getElementById("logout-el")
         depositEl.addEventListener("click", function() {
             console.log("Making deposit...")
         })
@@ -149,6 +151,10 @@ loginEl.addEventListener("click", function() {
         })
         withdrawalEl.addEventListener("click", function() {
             console.log("Making withdrawal...")
+        })
+        logoutEl.addEventListener("click", function() {
+            sessionStorage.clear()
+            window.close()
         })
     } else {
         failedLoginEl.innerText = "Incorrect username and/or password"
