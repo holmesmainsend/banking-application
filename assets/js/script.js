@@ -137,8 +137,11 @@ loginEl.addEventListener("click", function() {
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
         <button type="button" id="deposit-el">Make Deposit</button>
+        <br>
         <button type="button" id="balance-el">Check Balance</button>
+        <br>
         <button type="button" id="withdrawal-el">Make Withdrawal</button>
+        <br>
         <button type="button" id="logout-el">Logout</button>
         `
         const depositEl = document.getElementById("deposit-el")
@@ -148,6 +151,7 @@ loginEl.addEventListener("click", function() {
         depositEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
                 console.log("Successful deposit")
+                user1.balance += 150
             } else {
                 console.log("Request denied")
             }
