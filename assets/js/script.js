@@ -1,6 +1,7 @@
 // Change all variables from let to const where possible
 
-document.body.innerHTML = `<h1>Login Page</h1>
+document.body.innerHTML = `
+<h1>Login Page</h1>
 <br>
 <input type="text" id="username-el" placeholder="username">
 <br>
@@ -9,7 +10,8 @@ document.body.innerHTML = `<h1>Login Page</h1>
 <br>
 <button type="button" id="login-el">LOGIN</button>
 <br>
-<p id="failed-login-el"></p>`
+<p id="failed-login-el"></p>
+`
 
 const usernameEl = document.getElementById("username-el")
 const passwordEl = document.getElementById("password-el")
@@ -130,7 +132,12 @@ loginEl.addEventListener("click", function() {
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         console.log("Correct password entered")
         user1.sessionKeyGenerator(returningUsername, returningPassword)
-        document.body.innerHTML = `<h1>Welcome back, ${returningUsername}</h1>`
+        document.body.innerHTML = `
+        <h1>Welcome back, ${returningUsername}</h1>
+        <button type="button" id="deposit-el">Make Deposit</button>
+        <button type="button" id="balance-el">Check Balance</button>
+        <button type="button" id="withdrawal-el">Make Withdrawal</button>
+        `
     } else {
         failedLoginEl.innerText = "Incorrect username and/or password"
     }
