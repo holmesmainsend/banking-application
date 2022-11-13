@@ -12,7 +12,6 @@ document.body.innerHTML = `
 <br>
 <p id="failed-login-el"></p>
 `
-
 const usernameEl = document.getElementById("username-el")
 const passwordEl = document.getElementById("password-el")
 const loginEl = document.getElementById("login-el")
