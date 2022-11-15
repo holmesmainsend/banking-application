@@ -121,12 +121,18 @@ let user2 = new HashTable("Steve", "Thisisthepassword@#")
 let user3 = new HashTable("Joe", "Metsamillion67")
 let user4 = new HashTable("Jeffrey", "117el8tion")
 
+let userArray = [user1, user2, user3, user4]
+
+for(let i = 0; i < userArray.length; i++) {
+}
+
 // Fix so that works for any user, not just user1
 // Checks first if any user exists with that username
 // Returns error if no user exists with that username
 loginEl.addEventListener("click", function() {
     let returningUsername = usernameEl.value.trim()
     let returningPassword = passwordEl.value.trim()
+    
     if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
         usernameEl.value = ""
         user1.sessionKeyGenerator(returningUsername, returningPassword)
