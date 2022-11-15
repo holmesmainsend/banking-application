@@ -2,7 +2,10 @@
 // (Save the hashes of passwords, not the plaintext passwords)
 
 document.body.innerHTML = `
-<h1>Login Page</h1>
+<h1>Bank Name Here</h1>
+<br>
+<br>
+<h2>Login Page</h2>
 <br>
 <input type="text" id="username-el" placeholder="username">
 <br>
@@ -139,15 +142,18 @@ loginEl.addEventListener("click", function() {
         usernameEl.value = ""
         user.sessionKeyGenerator(returningUsername, returningPassword)
         document.body.innerHTML = `
-        <h1>Welcome back, ${returningUsername}</h1>
+        <h1>Bank Name Here</h1>
+        <br>
+        <br>
+        <h2>Welcome back, ${returningUsername}</h2>
+        <button type="button" id="balance-el">CHECK BALANCE</button>
+        <p id="balance-display"></p>
+        <br>
+        <br>
         <p>Make Deposit:</p>
         <input type="number" id="deposit-val" min="1">
         <button type="button" id="deposit-el">SUBMIT</button>
         <br>
-        <br>
-        <br>
-        <button type="button" id="balance-el">CHECK BALANCE</button>
-        <p id="balance-display"></p>
         <br>
         <br>
         <p>Make Withdrawal:</p>
