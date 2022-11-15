@@ -33,7 +33,7 @@ function seasoning(username, password) {
         modifiedSalt[modifiedSaltCounter] = parseInt(piString.substring(i, i + 1)) + i * userDigits
         modifiedSaltCounter++
     }
-    // console.log(modifiedSalt)
+
     let finalSalt = []
     finalSaltCounter = 0
     for(let i = 0; i < modifiedSalt.length; i++) {
@@ -117,14 +117,9 @@ class HashTable {
 }
 
 let user1 = new HashTable("Alice", "Mypassword123!")
-// console.log(user1.hash)
 let user2 = new HashTable("Steve", "Thisisthepassword@#")
-// console.log(user2.hash)
 let user3 = new HashTable("Joe", "Metsamillion67")
-// console.log(user3.hash)
 let user4 = new HashTable("Jeffrey", "117el8tion")
-// console.log(user4.hash)
-
 
 // Fix so that works for any user, not just user1
 // Checks first if any user exists with that username
@@ -138,17 +133,21 @@ loginEl.addEventListener("click", function() {
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
         <p>Make Deposit:</p>
-        <input type="number" id="deposit-val" min="0">
+        <input type="number" id="deposit-val" min="1">
         <button type="button" id="deposit-el">SUBMIT</button>
         <br>
         <br>
         <br>
         <button type="button" id="balance-el">CHECK BALANCE</button>
+        <p id="balance-display"></p>
         <br>
         <br>
         <p>Make Withdrawal:</p>
-        <input type="number" id="withdrawal-val" min="0">
+        <input type="number" id="withdrawal-val" min="1">
         <button type="button" id="withdrawal-el">SUBMIT</button>
+        <br>
+        <br>
+        <p id="warning"></p>
         <br>
         <br>
         <button type="button" id="logout-el">LOGOUT</button>
@@ -156,37 +155,51 @@ loginEl.addEventListener("click", function() {
         const depositVal = document.getElementById("deposit-val")
         const depositEl = document.getElementById("deposit-el")
         const balanceEl = document.getElementById("balance-el")
+        const balanceDisplay = document.getElementById("balance-display")
         const withdrawalVal = document.getElementById("withdrawal-val")
         const withdrawalEl = document.getElementById("withdrawal-el")
+        const warningEl = document.getElementById("warning")
         const logoutEl = document.getElementById("logout-el")
 
-        // Change console logs to appear on HTML page instead
         depositEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                user1.balance += parseFloat(depositVal.value)
-                depositVal.value = ""
+                if(parseFloat(depositVal.value) < 1 || isNaN(parseFloat(depositVal.value))) {
+                    warningEl.innerText = "Positive numbers only"
+                    depositVal.value = ""
+                } else {
+                    user1.balance += parseFloat(depositVal.value)
+                    depositVal.value = ""
+                    warningEl.innerText = ""
+                    balanceDisplay.innerText = "Current Balance: " + user1.balance
+                }
             } else {
-                console.log("Request denied")
+                warningEl.innerText = "Request Denied"
             }
         })
         balanceEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                console.log(user1.balance)
+                balanceDisplay.innerText = "Current Balance: " + user1.balance
+                warningEl.innerText = ""
             } else {
-                console.log("Request denied")
+                warningEl.innerText = "Request Denied"
             }
         })
         withdrawalEl.addEventListener("click", function() {
             if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
                 if(user1.balance < withdrawalVal.value) {
-                    console.log("insufficient funds")
+                    warningEl.innerText = "Insufficient funds"
+                    withdrawalVal.value = ""
+                } else if(parseFloat(withdrawalVal.value) < 1 || isNaN(parseFloat(withdrawalVal.value))) {
+                    warningEl.innerText = "Positive numbers only"
                     withdrawalVal.value = ""
                 } else {
                     user1.balance -= parseFloat(withdrawalVal.value)
                     withdrawalVal.value = ""
+                    warningEl.innerText = ""
+                    balanceDisplay.innerText = "Current Balance: " + user1.balance
                 }
             } else {
-                console.log("Request denied")
+                warningEl.innerText = "Request Denied"
             }
         })
         logoutEl.addEventListener("click", function() {
