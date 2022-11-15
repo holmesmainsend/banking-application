@@ -2,6 +2,9 @@
 
 // Fix so that automatically checks for session key upon page refresh, no repeat login necessary
 
+// Save all user info in database, not in this script (also save balance value between logins)
+// (Save the hashes of passwords, not the plaintext passwords)
+
 document.body.innerHTML = `
 <h1>Login Page</h1>
 <br>
@@ -123,19 +126,22 @@ let user4 = new HashTable("Jeffrey", "117el8tion")
 
 let userArray = [user1, user2, user3, user4]
 
-for(let i = 0; i < userArray.length; i++) {
-}
-
-// Fix so that works for any user, not just user1
-// Checks first if any user exists with that username
-// Returns error if no user exists with that username
 loginEl.addEventListener("click", function() {
     let returningUsername = usernameEl.value.trim()
     let returningPassword = passwordEl.value.trim()
-    
-    if(user1.hash === hasher(seasoning(returningUsername, returningPassword))) {
+    let user = 0
+    let i = 0
+    while(i < userArray.length && user === 0) {
+        if(returningUsername === userArray[i].username) {
+            user = userArray[i]
+        }
+        i++
+    }
+    if(user === 0) {
+        failedLoginEl.innerText = "Incorrect username and/or password"
+    } else if(user.hash === hasher(seasoning(returningUsername, returningPassword))) {
         usernameEl.value = ""
-        user1.sessionKeyGenerator(returningUsername, returningPassword)
+        user.sessionKeyGenerator(returningUsername, returningPassword)
         document.body.innerHTML = `
         <h1>Welcome back, ${returningUsername}</h1>
         <p>Make Deposit:</p>
@@ -168,41 +174,41 @@ loginEl.addEventListener("click", function() {
         const logoutEl = document.getElementById("logout-el")
 
         depositEl.addEventListener("click", function() {
-            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
+            if(sessionStorage.getItem(returningUsername) == user.sessionKeyGenerator(returningUsername, returningPassword)) {
                 if(parseFloat(depositVal.value) < 1 || isNaN(parseFloat(depositVal.value))) {
                     warningEl.innerText = "Positive numbers only"
                     depositVal.value = ""
                 } else {
-                    user1.balance += parseFloat(depositVal.value)
+                    user.balance += parseFloat(depositVal.value)
                     depositVal.value = ""
                     warningEl.innerText = ""
-                    balanceDisplay.innerText = "Current Balance: " + user1.balance
+                    balanceDisplay.innerText = "Current Balance: " + user.balance
                 }
             } else {
                 warningEl.innerText = "Request Denied"
             }
         })
         balanceEl.addEventListener("click", function() {
-            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                balanceDisplay.innerText = "Current Balance: " + user1.balance
+            if(sessionStorage.getItem(returningUsername) == user.sessionKeyGenerator(returningUsername, returningPassword)) {
+                balanceDisplay.innerText = "Current Balance: " + user.balance
                 warningEl.innerText = ""
             } else {
                 warningEl.innerText = "Request Denied"
             }
         })
         withdrawalEl.addEventListener("click", function() {
-            if(sessionStorage.getItem("Alice") == user1.sessionKeyGenerator(returningUsername, returningPassword)) {
-                if(user1.balance < withdrawalVal.value) {
+            if(sessionStorage.getItem(returningUsername) == user.sessionKeyGenerator(returningUsername, returningPassword)) {
+                if(user.balance < withdrawalVal.value) {
                     warningEl.innerText = "Insufficient funds"
                     withdrawalVal.value = ""
                 } else if(parseFloat(withdrawalVal.value) < 1 || isNaN(parseFloat(withdrawalVal.value))) {
                     warningEl.innerText = "Positive numbers only"
                     withdrawalVal.value = ""
                 } else {
-                    user1.balance -= parseFloat(withdrawalVal.value)
+                    user.balance -= parseFloat(withdrawalVal.value)
                     withdrawalVal.value = ""
                     warningEl.innerText = ""
-                    balanceDisplay.innerText = "Current Balance: " + user1.balance
+                    balanceDisplay.innerText = "Current Balance: " + user.balance
                 }
             } else {
                 warningEl.innerText = "Request Denied"
