@@ -222,6 +222,14 @@ function dashboardGenerator() {
     }
 }
 
+function userCreator(username, password, passwordDuplicate) {
+    if(password != passwordDuplicate) {
+        console.log("Passwords do not match")
+    } else {
+        console.log(username, password, passwordDuplicate)
+    }
+}
+
 function registrationPageGenerator() {
     document.body.innerHTML = `
     <h1>Lunome Stacks</h1>
@@ -245,8 +253,12 @@ function registrationPageGenerator() {
     usernameRegisterEl = document.getElementById("username-register")
     passwordRegisterEl = document.getElementById("password-register")
     passwordDuplicateEl = document.getElementById("password-duplicate")
+    registerEl = document.getElementById("register-el")
     returningUserEl = document.getElementById("returning-user")
 
+    registerEl.addEventListener("click", function() {
+        userCreator(usernameRegisterEl.value, passwordRegisterEl.value, passwordDuplicateEl.value)
+    })
     returningUserEl.addEventListener("click", loginPageGenerator)
 }
 
