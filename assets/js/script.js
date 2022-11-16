@@ -142,7 +142,7 @@ function dashboardGenerator() {
         <h1>Lunome Stacks</h1>
         <br>
         <br>
-        <h2>Welcome back, ${returningUsername}</h2>
+        <h2>Welcome to your dashboard, ${returningUsername}</h2>
         <button type="button" id="balance-el">CHECK BALANCE</button>
         <p id="balance-display"></p>
         <br>
@@ -225,8 +225,13 @@ function dashboardGenerator() {
 function userCreator(username, password, passwordDuplicate) {
     if(password != passwordDuplicate) {
         reigstrationWarningEl.innerText = "Passwords do not match"
+    } else if(username.length < 10 || password.length < 10) {
+        reigstrationWarningEl.innerText = "Longer username and/or password required"
     } else {
-        console.log(username, password, passwordDuplicate)
+        username.value = ""
+        password.value = ""
+        passwordDuplicate.value = ""
+        reigstrationWarningEl.innerText = "Account created!"
     }
 }
 
@@ -239,7 +244,11 @@ function registrationPageGenerator() {
     <br>
     <input type="text" id="username-register" placeholder="username">
     <br>
+    <p>minimum of 10 alphanumeric characters</p>
+    <br>
     <input type="password" id="password-register" placeholder="password">
+    <br>
+    <p>minimum of 10 alphanumeric characters</p>
     <br>
     <input type="password" id="password-duplicate" placeholder="retype password">
     <br>
