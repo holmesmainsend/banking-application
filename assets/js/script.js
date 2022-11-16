@@ -8,13 +8,6 @@
 (Save the hashes of passwords, not the plaintext passwords)
 */
 
-let PouchDB = require("pouchdb")
-let db = new PouchDB("kittens")
-
-db.info().then(function(info) {
-    console.log(info)
-})
-
 let usernameRegisterEl = ""
 let passwordRegisterEl = ""
 let passwordDuplicateEl = ""
