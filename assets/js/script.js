@@ -213,14 +213,14 @@ function dashboardGenerator() {
 
 function userCreator(username, password, passwordDuplicate) {
     if(password != passwordDuplicate) {
-        reigstrationWarningEl.innerText = "Passwords do not match"
+        reigstrationNotificationEl.innerText = "Passwords do not match"
     } else if(username.length < 10 || password.length < 10) {
-        reigstrationWarningEl.innerText = "Longer username and/or password required"
+        reigstrationNotificationEl.innerText = "Longer username and/or password required"
     } else {
         username.value = ""
         password.value = ""
         passwordDuplicate.value = ""
-        reigstrationWarningEl.innerText = "Account created!"
+        reigstrationNotificationEl.innerText = "Account created!"
     }
 }
 
@@ -234,7 +234,7 @@ function registrationPageGenerator() {
     <p>minimum of 10 alphanumeric characters</p>
     <input type="password" id="password-duplicate" placeholder="retype password">
     <button type="button" id="register-el">REGISTER</button>
-    <p id="registration-warning-el"></p>
+    <p id="registration-notification-el"></p>
     <button type="button" id="returning-user">Already have an account?</button>
     `
     
@@ -242,7 +242,7 @@ function registrationPageGenerator() {
     passwordRegisterEl = document.getElementById("password-register")
     passwordDuplicateEl = document.getElementById("password-duplicate")
     registerEl = document.getElementById("register-el")
-    reigstrationWarningEl = document.getElementById("registration-warning-el")
+    reigstrationNotificationEl = document.getElementById("registration-notification-el")
     returningUserEl = document.getElementById("returning-user")
 
     registerEl.addEventListener("click", function() {
