@@ -1,3 +1,5 @@
+// Add explanatory comments to all of code, along with README
+
 // Save all user info in database, not in this script (also save balance value between logins)
 // (Save the hashes of passwords, not the plaintext passwords)
 
