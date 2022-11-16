@@ -9,7 +9,11 @@
 */
 
 let PouchDB = require("pouchdb")
-let db = new PouchDB("bank_database")
+let db = new PouchDB("kittens")
+
+db.info().then(function(info) {
+    console.log(info)
+})
 
 let usernameRegisterEl = ""
 let passwordRegisterEl = ""
