@@ -8,6 +8,9 @@
 (Save the hashes of passwords, not the plaintext passwords)
 */
 
+let PouchDB = require("pouchdb")
+let db = new PouchDB("bank_database")
+
 let usernameRegisterEl = ""
 let passwordRegisterEl = ""
 let passwordDuplicateEl = ""
