@@ -1,7 +1,12 @@
+// Record video, include on GitHub
+
+// Write Word Doc for project
+
 // Add explanatory comments to all of code, along with README
 
-// Save all user info in database, not in this script (also save balance value between logins)
-// (Save the hashes of passwords, not the plaintext passwords)
+/* Save all user info in database, not in this script (also save balance value between logins)
+(Save the hashes of passwords, not the plaintext passwords)
+*/
 
 // Change first page to creating new account, with button to go straight to login
 
