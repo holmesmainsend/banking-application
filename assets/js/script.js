@@ -140,27 +140,16 @@ function dashboardGenerator() {
         user.sessionKeyGenerator(returningUsername, returningPassword)
         document.body.innerHTML = `
         <h1>Lunome Stacks</h1>
-        <br>
-        <br>
         <h2>Welcome to your dashboard, ${returningUsername}</h2>
         <button type="button" id="balance-el">CHECK BALANCE</button>
         <p id="balance-display"></p>
-        <br>
-        <br>
         <p>Make Deposit:</p>
         <input type="number" id="deposit-val" min="1">
         <button type="button" id="deposit-el">SUBMIT</button>
-        <br>
-        <br>
-        <br>
         <p>Make Withdrawal:</p>
         <input type="number" id="withdrawal-val" min="1">
         <button type="button" id="withdrawal-el">SUBMIT</button>
-        <br>
-        <br>
         <p id="warning"></p>
-        <br>
-        <br>
         <button type="button" id="logout-el">LOGOUT</button>
         `
         const depositVal = document.getElementById("deposit-val")
@@ -238,25 +227,14 @@ function userCreator(username, password, passwordDuplicate) {
 function registrationPageGenerator() {
     document.body.innerHTML = `
     <h1>Lunome Stacks</h1>
-    <br>
-    <br>
     <h2>Create a free account today</h2>
-    <br>
     <input type="text" id="username-register" placeholder="username">
-    <br>
     <p>minimum of 10 alphanumeric characters</p>
-    <br>
     <input type="password" id="password-register" placeholder="password">
-    <br>
     <p>minimum of 10 alphanumeric characters</p>
-    <br>
     <input type="password" id="password-duplicate" placeholder="retype password">
-    <br>
-    <br>
     <button type="button" id="register-el">REGISTER</button>
-    <br>
     <p id="registration-warning-el"></p>
-    <br>
     <button type="button" id="returning-user">Already have an account?</button>
     `
     
@@ -276,19 +254,11 @@ function registrationPageGenerator() {
 function loginPageGenerator() {
     document.body.innerHTML = `
     <h1>Lunome Stacks</h1>
-    <br>
-    <br>
     <h2>Login Page</h2>
-    <br>
     <input type="text" id="username-el" placeholder="username">
-    <br>
     <input type="password" id="password-el" placeholder="password">
-    <br>
-    <br>
     <button type="button" id="login-el">LOGIN</button>
-    <br>
     <p id="failed-login-el"></p>
-    <br>
     <button type="button" id="backstep-el">Create new account</button>
     `
 
