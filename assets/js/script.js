@@ -224,7 +224,7 @@ function dashboardGenerator() {
 
 function userCreator(username, password, passwordDuplicate) {
     if(password != passwordDuplicate) {
-        console.log("Passwords do not match")
+        reigstrationWarningEl.innerText = "Passwords do not match"
     } else {
         console.log(username, password, passwordDuplicate)
     }
@@ -246,6 +246,7 @@ function registrationPageGenerator() {
     <br>
     <button type="button" id="register-el">REGISTER</button>
     <br>
+    <p id="registration-warning-el"></p>
     <br>
     <button type="button" id="returning-user">Already have an account?</button>
     `
@@ -254,6 +255,7 @@ function registrationPageGenerator() {
     passwordRegisterEl = document.getElementById("password-register")
     passwordDuplicateEl = document.getElementById("password-duplicate")
     registerEl = document.getElementById("register-el")
+    reigstrationWarningEl = document.getElementById("registration-warning-el")
     returningUserEl = document.getElementById("returning-user")
 
     registerEl.addEventListener("click", function() {
