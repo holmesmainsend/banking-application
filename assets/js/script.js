@@ -73,7 +73,7 @@ function hasher(salt) {
         }
     }
     let i = 0
-    while(finalHash.length < 270) {
+    while(finalHash.length < 300) {
         finalHash += finalHashArr[i]
         i++
     }
