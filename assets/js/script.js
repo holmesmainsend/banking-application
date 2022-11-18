@@ -4,9 +4,8 @@
 
 // TODO: add explanatory comments to all of code, along with README
 
-/* TODO: save all user info in database, not in this script (also save balance value between logins)
-(Save the hashes of passwords, not the plaintext passwords)
-*/
+// TODO: allow new user creation through registration page
+
 
 let usernameRegisterEl = ""
 let passwordRegisterEl = ""
