@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/holmesmainsend/banking-application/issues"
   },
-  "homepage": "https://github.com/holmesmainsend/banking-application#readme"
+  "homepage": "https://github.com/holmesmainsend/banking-application#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
