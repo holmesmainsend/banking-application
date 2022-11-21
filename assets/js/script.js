@@ -1,8 +1,17 @@
+/*
+    Future plans:
+        - move major algorithms (salting, hashing, session key generation) to separate Java layer
+        - add SQL database layer for user credentials, balances, etc.
+        - add stricter password requirements
+        - add separate admin/server dashboard
+*/
+
 // TODO: record video, include on GitHub repo
 
 // TODO: write Word Doc for project
 
 // TODO: add explanatory comments to all of code, along with README
+
 
 // Initial page variables (for event listener access)
 let usernameRegisterEl = ""
