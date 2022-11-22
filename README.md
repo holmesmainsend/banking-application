@@ -9,7 +9,7 @@ Link to website:
 
   ## Table of Contents
   * [Description](#description)
-  * [FAQs](#faq)
+  * [Video Demonstration](#video-demonstration)
   * [Future Improvements](#future-improvements)
   * [License](#license)
   * [Questions?](#questions?)
@@ -19,7 +19,7 @@ Link to website:
 
 
 
-## FAQs
+## Video Demonstration
 
 
 
