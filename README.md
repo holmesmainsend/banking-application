@@ -12,7 +12,7 @@ Link to website:
   * [Video Demonstration](#video-demonstration)
   * [Future Improvements](#future-improvements)
   * [License](#license)
-  * [Questions?](#questions?)
+  * [Questions?](#questions)
 
 
 ## Description
