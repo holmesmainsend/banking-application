@@ -9,11 +9,21 @@ Link to website:
 
   ## Table of Contents
   * [Description](#description)
+  * [FAQs](#faq)
+  * [Future Improvements](#futureimprovements)
   * [License](#license)
   * [Questions?](#questions?)
 
 
 ## Description
+
+
+
+## FAQs
+
+
+
+## Future Improvements
 
 
 
