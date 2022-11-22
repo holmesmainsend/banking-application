@@ -1,3 +1,5 @@
+// TODO: finish README
+
 /*
     Future plans:
         - move major algorithms (salting, hashing, session key generation) to separate Java layer
@@ -10,7 +12,7 @@
 
 // TODO: write Word Doc for project
 
-// TODO: add explanatory comments to all of code, along with README
+// TODO: add explanatory comments to all of code
 
 
 // Initial page variables (for event listener access)
