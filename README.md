@@ -10,7 +10,7 @@ Link to website:
   ## Table of Contents
   * [Description](#description)
   * [FAQs](#faq)
-  * [Future Improvements](#futureimprovements)
+  * [Future Improvements](#future-improvements)
   * [License](#license)
   * [Questions?](#questions?)
 
