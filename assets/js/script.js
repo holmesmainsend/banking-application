@@ -1,14 +1,14 @@
 // TODO: finish README
 
+// TODO: record video, include on GitHub repo
+
 /*
-    Future plans:
+    Future plans (move to README):
         - move major algorithms (salting, hashing, session key generation) to separate Java layer
         - add SQL database layer for user credentials, balances, etc.
         - add stricter password requirements
         - add separate admin/server dashboard
 */
-
-// TODO: record video, include on GitHub repo
 
 // TODO: write Word Doc for project
 
@@ -79,6 +79,10 @@ function hasher(salt) {
     let finalHash = ""
     let finalHashCounter = 0
     const finalHashArr = []
+
+    /*
+        The hashing algorithm begins by 
+    */
     for(let i = 0; i < salt.length; i++) {
         let val = salt.charCodeAt(i)
         hashVal = ((hashVal << 6) - hashVal) + val
@@ -86,11 +90,9 @@ function hasher(salt) {
     }
     for(let i = 0; i < midHashArr.length; i++) {
         singleVal = midHashArr[i] % 128
-        if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)) {
+        if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)
+           || (singleVal < 58 && singleVal > 47)) {
             finalHashArr[finalHashCounter] = String.fromCharCode(singleVal)
-            finalHashCounter++
-        } else if(singleVal < 58 && singleVal > 47) {
-            finalHashArr[finalHashCounter] = singleVal
             finalHashCounter++
         }
     }
