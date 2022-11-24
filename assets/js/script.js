@@ -41,7 +41,6 @@ function seasoning(username, password) {
         modifiedSalt[modifiedSaltCounter] = parseInt(piString.substring(i, i + 1)) + i * userDigits
         modifiedSaltCounter++
     }
-
     const finalSalt = []
     finalSaltCounter = 0
     for(let i = 0; i < modifiedSalt.length; i++) {
