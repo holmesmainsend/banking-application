@@ -54,7 +54,7 @@ function seasoning(username, password) {
     /*
         Transferring (into the finalSalt array) only those array values of modifiedSalt that, after modulo 128, 
         happen to fall within the ASCII values for either lowercase letters, uppercase letters, or numbers.
-        These numbers are then converted into their corresponding ASCII character or number values.
+        These ASCII values are then converted into their corresponding character or number.
     */
     for(let i = 0; i < modifiedSalt.length; i++) {
         modifiedSalt[i] %= 128
@@ -64,6 +64,8 @@ function seasoning(username, password) {
             finalSaltCounter++
         }
     }
+
+    // Adding the final salt to the original password
     for (let i = 0; i < finalSaltCounter; i++) {
         password += finalSalt[i]
     }
