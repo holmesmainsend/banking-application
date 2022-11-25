@@ -2,14 +2,6 @@
 
 // TODO: record video, include on GitHub repo
 
-/*
-    Future plans (move to README):
-        - move major algorithms (salting, hashing, session key generation) to separate Java layer
-        - add SQL database layer for user credentials, balances, etc.
-        - add stricter password requirements
-        - add separate admin/server dashboard
-*/
-
 // TODO: write Word Doc for project
 
 

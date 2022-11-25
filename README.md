@@ -29,8 +29,13 @@ Link to website: https://holmesmainsend.github.io/banking_application/
 
 
 ## Future Improvements
-
-
+  The list of potential improvements to this app is limitless. Some positive changes would include:
+    * Move all the major security algorithms (salting, hashing, session key generation) to a separate Java layer and keep them private
+    * Add a SQL database layer for user credentials, balances, etc.
+    * Enforce stricter password/username requirements
+    * Create separate admin/server dashboard
+    * Expand user dashboard to include budget tab, chart of expenditures over time, and more
+    
 
 ## License
   Click the badge at the top of this README for more information on this particular license.
