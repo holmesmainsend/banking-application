@@ -33,3 +33,4 @@ Link to website: https://holmesmainsend.github.io/banking_application/
 
 ## Questions?
   * GitHub: https://github.com/holmesmainsend
+  * LinkedIn: https://www.linkedin.com/in/sean-holmesmainsend/
