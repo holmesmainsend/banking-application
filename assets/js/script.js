@@ -1,7 +1,3 @@
-// TODO: finish README
-
-// TODO: record video, include on GitHub repo
-
 // TODO: add styling via CSS
 
 // TODO: write Word Doc for project
