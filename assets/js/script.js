@@ -394,5 +394,5 @@ function loginPageGenerator() {
     backstepEl.addEventListener("click", registrationPageGenerator);
 }
 
-// Website opens with account registration page
+// Opening website with account registration page
 registrationPageGenerator();
