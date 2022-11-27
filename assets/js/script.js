@@ -248,7 +248,7 @@ function dashboardGenerator() {
         usernameEl.value = "";
         user.sessionKeyGenerator(returningUsername, returningPassword);
         document.body.innerHTML = `
-        <h1>Lunome Q</h1>
+        <h1>Lunome<span id="q"> Q</span></h1>
         <h2>Welcome to your dashboard, ${returningUsername}</h2>
         <button type="button" id="balance-el">CHECK BALANCE</button>
         <p id="balance-display"></p>
@@ -345,7 +345,7 @@ function userCreator(username, password, passwordDuplicate) {
 // Generates registration page HTML
 function registrationPageGenerator() {
     document.body.innerHTML = `
-    <h1>Lunome Q</h1>
+    <h1>Lunome<span id="q"> Q</span></h1>
     <h2>Create a free account today</h2>
     <input type="text" id="username-register" placeholder="username">
     <p>minimum of 10 alphanumeric characters</p>
@@ -373,7 +373,7 @@ function registrationPageGenerator() {
 // Generates login page HTML
 function loginPageGenerator() {
     document.body.innerHTML = `
-    <h1>Lunome Q</h1>
+    <h1>Lunome<span id="q"> Q</span></h1>
     <h2>Login Page</h2>
     <input type="text" id="username-el" placeholder="username">
     <input type="password" id="password-el" placeholder="password">
