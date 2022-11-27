@@ -1,7 +1,5 @@
 // TODO: add styling via CSS
 
-// TODO: write Word Doc for project
-
 
 // Initial page variables (for event listener access)
 let usernameRegisterEl = "";
