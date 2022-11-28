@@ -25,7 +25,7 @@ Link to website: https://holmesmainsend.github.io/banking_application/
 
 
 ## Video Demonstration
-![Video walkthrough of website](assets/website_walkthrough.mov)
+https://www.youtube.com/watch?v=a6bcuLqFwEM
 
 
 ## Future Improvements
