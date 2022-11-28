@@ -24,7 +24,7 @@ Link to website: https://holmesmainsend.github.io/banking_application/
   As for the "Q" portion of the website, it refers to the implementation of the Queue abstract data type (ADT) within this application. Specifically, the Queue takes the form of a Linear-feedback shift register (LFSR) used for the generation of each user's session key.
 
 
-## Video Demonstration
+## Video Walkthrough
 https://www.youtube.com/watch?v=a6bcuLqFwEM
 
 
