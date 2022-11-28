@@ -1,6 +1,3 @@
-// TODO: add styling via CSS
-
-
 // Initial page variables (for event listener access)
 let usernameRegisterEl = "";
 let passwordRegisterEl = "";
@@ -249,17 +246,18 @@ function dashboardGenerator() {
         user.sessionKeyGenerator(returningUsername, returningPassword);
         document.body.innerHTML = `
         <h1>Lunome<span id="q"> Q</span></h1>
-        <h2>Welcome to your dashboard, ${returningUsername}</h2>
-        <button type="button" id="balance-el">CHECK BALANCE</button>
-        <p id="balance-display"></p>
+        <h2 id="welcome-message">Welcome to your dashboard, ${returningUsername}</h2>
         <p>Make Deposit:</p>
         <input type="number" id="deposit-val" min="1">
-        <button type="button" id="deposit-el">SUBMIT</button>
+        <button type="button" id="deposit-el">Submit</button>
         <p>Make Withdrawal:</p>
         <input type="number" id="withdrawal-val" min="1">
-        <button type="button" id="withdrawal-el">SUBMIT</button>
+        <button type="button" id="withdrawal-el">Submit</button>
+        <br>
+        <button type="button" id="balance-el">Check Balance</button>
+        <button type="button" id="logout-el">Logout</button>
+        <p id="balance-display"></p>
         <p id="warning"></p>
-        <button type="button" id="logout-el">LOGOUT</button>
         `;
         const depositVal = document.getElementById("deposit-val");
         const depositEl = document.getElementById("deposit-el");
@@ -348,12 +346,12 @@ function registrationPageGenerator() {
     <h1>Lunome<span id="q"> Q</span></h1>
     <h2>Create a free account today</h2>
     <input type="text" id="username-register" placeholder="username">
-    <p id="notice">minimum of 10 alphanumeric characters</p>
+    <p id="notice">(minimum of 10 alphanumeric characters)</p>
     <input type="password" id="password-register" placeholder="password">
-    <p id="notice">minimum of 10 alphanumeric characters</p>
+    <p id="notice">(minimum of 10 alphanumeric characters)</p>
     <input type="password" id="password-duplicate" placeholder="retype password">
     <br>
-    <button type="button" id="register-el">REGISTER</button>
+    <button type="button" id="register-el">Register</button>
     <button type="button" id="returning-user">Already have an account?</button>
     <p id="registration-notification-el"></p>
     `;
@@ -375,12 +373,12 @@ function registrationPageGenerator() {
 function loginPageGenerator() {
     document.body.innerHTML = `
     <h1>Lunome<span id="q"> Q</span></h1>
-    <h2>Login Page</h2>
+    <h2>Login</h2>
     <input type="text" id="username-el" placeholder="username">
     <br>
     <input type="password" id="password-el" placeholder="password">
     <br>
-    <button type="button" id="login-el">LOGIN</button>
+    <button type="button" id="login-el">Login</button>
     <button type="button" id="backstep-el">Create new account</button>
     <p id="failed-login-el"></p>
     `;

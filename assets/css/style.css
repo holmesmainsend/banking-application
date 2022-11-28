@@ -5,7 +5,8 @@ body {
 }
 
 h1 {
-    margin-bottom: 60px;
+    font-size: 45px;
+    margin-bottom: 50px;
 }
 
 #q {
@@ -13,6 +14,7 @@ h1 {
 }
 
 input {
+    font-size: 20px;
     background-color: black;
     border: none;
     border-bottom: solid;
@@ -25,11 +27,24 @@ input:focus {
 }
 
 #notice {
+    font-size: 15px;
     margin-bottom: 35px;
 }
 
 #password-duplicate {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+#registration-notification-el {
+    margin-top: 30px;
+    font-size: 17px;
+    color: red;
+}
+
+#failed-login-el {
+    margin-top: 30px;
+    font-size: 17px;
+    color: red;
 }
 
 #username-el {
@@ -45,11 +60,36 @@ input:focus {
 }
 
 button {
+    font-size: 15px;
     border: none;
+    margin-right: 20px;
     background-color: black;
     color: white;
+    font-weight: bold;
 }
 
 button:hover {
-    color: aqua;
+    color: gold;
+}
+
+#welcome-message {
+    margin-bottom: 40px;
+}
+
+#deposit-val {
+    margin-bottom: 25px;
+}
+
+#withdrawal-val {
+    margin-bottom: 35px;
+}
+
+#balance-display {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#warning {
+    color: red;
+    font-size: 17px;
 }
