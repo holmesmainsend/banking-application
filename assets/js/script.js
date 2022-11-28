@@ -86,7 +86,7 @@ function seasoning(username, password) {
     finalSaltCounter = 0;
 
     /*
-        Transferring (into the finalSalt array) only those array values of modifiedSalt that, after modulo 128, 
+        Adding to the original password only those array values of modifiedSalt that, after modulo 128, 
         happen to fall within the ASCII values for either lowercase letters, uppercase letters, or numbers.
         These ASCII values are then converted into their corresponding character or number.
     */
@@ -94,14 +94,8 @@ function seasoning(username, password) {
         modifiedSalt[i] %= 128;
         if((modifiedSalt[i] < 123 && modifiedSalt[i] > 96) || (modifiedSalt[i] < 91 && modifiedSalt[i] > 64)
            || (modifiedSalt[i] < 58 && modifiedSalt[i] > 47)) {
-            finalSalt[finalSaltCounter] = String.fromCharCode(modifiedSalt[i]);
-            finalSaltCounter++;
+            password += String.fromCharCode(modifiedSalt[i]);
         }
-    }
-
-    // Adding the final salt to the original password
-    for (let i = 0; i < finalSaltCounter; i++) {
-        password += finalSalt[i];
     }
     return password;
 }
