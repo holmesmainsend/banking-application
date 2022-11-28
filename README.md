@@ -3,7 +3,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<!-- ![Screenshot of Website]() -->
+![Screenshot of Website](assets/website_screenshot.png)
 
 Link to website: https://holmesmainsend.github.io/banking_application/
 
