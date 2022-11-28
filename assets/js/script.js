@@ -152,18 +152,13 @@ class HashTable {
     */
     sessionKeyGenerator(username, password) {
         let passString = "";
-        let userDigits = 1;
-
-        for(let i = 0; i < username.length; i++) {
-            userDigits += username.charCodeAt(i) * username.length;
-        }
 
         /*
             As with the salting and hashing algorithms, the ASCII code for the character at each index of the
             password is taken and added together into a single variable, the passString.
         */
         for(let i = 0; i < password.length; i++) {
-            passString += password.charCodeAt(i) * userDigits;
+            passString += password.charCodeAt(i) * 9;
         }
 
         // Taking each integer of passString and storing it in plainBitArr as either 1 or 0
