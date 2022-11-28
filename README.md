@@ -36,6 +36,7 @@ Link to website: https://holmesmainsend.github.io/banking_application/
   * Enforcing stricter password/username requirements
   * Creating separate admin/server dashboard
   * Expanding user dashboard to include budget tab, chart of expenditures over time, and more
+  * Implement a responsive page layout for devices of all shapes and sizes
     
 
 ## License
