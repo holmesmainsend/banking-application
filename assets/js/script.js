@@ -173,12 +173,13 @@ class HashTable {
         }
 
         /*
-            Random (atmospheric noise) initial 64 bits provided by https://www.random.org/bytes/. Because both 
-            mathematical and array operations are being performed on these values, it is not stored as a 
-            string like pi was above. If necessary a new string of key bits can be easily generated and, unlike 
-            pi, can be called truly random. Even if the use of pi for the salting algorithm becomes public 
-            knowledge, it will not interfere with the security of the sessionKeyGenerator function or the 
-            keyBits stream. The one can be compromised without necessarily compromising the other.
+            Random (atmospheric noise) initial 64 bits provided by https://www.random.org/bytes/. 
+            Because both mathematical and array operations are being performed on these values, it is not 
+            stored as a string like pi was above. If necessary a new string of key bits can be easily 
+            generated and, unlike pi, can be called truly random. Even if the use of pi for the salting 
+            algorithm becomes public knowledge, it will not interfere with the security of the 
+            sessionKeyGenerator function or the keyBits stream. The one can be compromised without 
+            necessarily compromising the other.
         */
         const keyBits = [0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0];
         
@@ -186,9 +187,9 @@ class HashTable {
         const cipherBitArr = [];
         let initialKeyBitXOR = 0;
 
-        // LFSR with tap (XOR) bits at positions 2, 7, 8, 10, and 2nd to last of the keyBits array
+        // LFSR with tap (XOR) bits at positions 2, 7, 8, 11, and 2nd to last of the keyBits array
         for(let i = 0; i < 640; i++) {
-            initialKeyBitXOR = keyBits[1] ^ keyBits[6] ^ keyBits[7] ^ keyBits[9] ^ keyBits[keyBits.length - 2];
+            initialKeyBitXOR = keyBits[1] ^ keyBits[6] ^ keyBits[7] ^ keyBits[10] ^ keyBits[keyBits.length - 2];
             keyBits.unshift(initialKeyBitXOR);
             finalKeyStream[i] = keyBits.pop();
         }
