@@ -1,7 +1,10 @@
+body {
+    background: black;
+    color: white;
+}
+
 h1 {
-    color: indianred;
 }
 
 #q {
-    color: chocolate;
 }
