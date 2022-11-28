@@ -354,8 +354,8 @@ function registrationPageGenerator() {
     <input type="password" id="password-duplicate" placeholder="retype password">
     <br>
     <button type="button" id="register-el">REGISTER</button>
-    <p id="registration-notification-el"></p>
     <button type="button" id="returning-user">Already have an account?</button>
+    <p id="registration-notification-el"></p>
     `;
     
     usernameRegisterEl = document.getElementById("username-register");
@@ -377,11 +377,12 @@ function loginPageGenerator() {
     <h1>Lunome<span id="q"> Q</span></h1>
     <h2>Login Page</h2>
     <input type="text" id="username-el" placeholder="username">
+    <br>
     <input type="password" id="password-el" placeholder="password">
     <br>
     <button type="button" id="login-el">LOGIN</button>
-    <p id="failed-login-el"></p>
     <button type="button" id="backstep-el">Create new account</button>
+    <p id="failed-login-el"></p>
     `;
 
     usernameEl = document.getElementById("username-el");

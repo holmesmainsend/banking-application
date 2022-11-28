@@ -28,10 +28,28 @@ input:focus {
     margin-bottom: 35px;
 }
 
-#register-el {
-    margin-top: 15px;
+#password-duplicate {
+    margin-bottom: 20px;
+}
+
+#username-el {
+    margin-bottom: 25px;
+}
+
+#password-el {
+    margin-bottom: 20px;
 }
 
 #login-el {
     margin-top: 15px;
+}
+
+button {
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    color: aqua;
 }
