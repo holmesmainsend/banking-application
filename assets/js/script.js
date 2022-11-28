@@ -227,6 +227,7 @@ function dashboardGenerator() {
     if(user === 0) {
         failedLoginEl.innerText = "Incorrect username and/or password";
     } else if(user.hash === hasher(seasoning(returningUsername, returningPassword))) {
+        console.log(user.hash);
         usernameEl.value = "";
         user.sessionKeyGenerator(returningUsername, returningPassword);
         document.body.innerHTML = `
