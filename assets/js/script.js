@@ -348,9 +348,9 @@ function registrationPageGenerator() {
     <h1>Lunome<span id="q"> Q</span></h1>
     <h2>Create a free account today</h2>
     <input type="text" id="username-register" placeholder="username">
-    <p>minimum of 10 alphanumeric characters</p>
+    <p id="notice">minimum of 10 alphanumeric characters</p>
     <input type="password" id="password-register" placeholder="password">
-    <p>minimum of 10 alphanumeric characters</p>
+    <p id="notice">minimum of 10 alphanumeric characters</p>
     <input type="password" id="password-duplicate" placeholder="retype password">
     <br>
     <button type="button" id="register-el">REGISTER</button>

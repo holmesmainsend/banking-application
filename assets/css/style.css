@@ -1,6 +1,11 @@
 body {
     background: black;
     color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 60px;
 }
 
 #q {
@@ -17,6 +22,10 @@ input {
 
 input:focus {
     outline: none;
+}
+
+#notice {
+    margin-bottom: 35px;
 }
 
 #register-el {
