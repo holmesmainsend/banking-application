@@ -352,6 +352,7 @@ function registrationPageGenerator() {
     <input type="password" id="password-register" placeholder="password">
     <p>minimum of 10 alphanumeric characters</p>
     <input type="password" id="password-duplicate" placeholder="retype password">
+    <br>
     <button type="button" id="register-el">REGISTER</button>
     <p id="registration-notification-el"></p>
     <button type="button" id="returning-user">Already have an account?</button>
@@ -377,6 +378,7 @@ function loginPageGenerator() {
     <h2>Login Page</h2>
     <input type="text" id="username-el" placeholder="username">
     <input type="password" id="password-el" placeholder="password">
+    <br>
     <button type="button" id="login-el">LOGIN</button>
     <p id="failed-login-el"></p>
     <button type="button" id="backstep-el">Create new account</button>

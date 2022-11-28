@@ -3,8 +3,26 @@ body {
     color: white;
 }
 
-h1 {
+#q {
+    color: gold;
 }
 
-#q {
+input {
+    background-color: black;
+    border: none;
+    border-bottom: solid;
+    border-color: gold;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+#register-el {
+    margin-top: 15px;
+}
+
+#login-el {
+    margin-top: 15px;
 }
