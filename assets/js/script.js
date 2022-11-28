@@ -82,9 +82,6 @@ function seasoning(username, password) {
         modifiedSaltCounter++;
     }
 
-    const finalSalt = [];
-    finalSaltCounter = 0;
-
     /*
         Adding to the original password only those array values of modifiedSalt that, after modulo 128, 
         happen to fall within the ASCII values for either lowercase letters, uppercase letters, or numbers.
@@ -105,8 +102,6 @@ function hasher(salt) {
     let hashVal = 0;
     const midHashArr = [];
     let finalHash = "";
-    let finalHashCounter = 0;
-    const finalHashArr = [];
 
     /*
         The hashing algorithm begins with converting the characters and numbers of the salted password back
@@ -127,16 +122,8 @@ function hasher(salt) {
         singleVal = midHashArr[i] % 128;
         if((singleVal < 123 && singleVal > 96) || (singleVal < 91 && singleVal > 64)
            || (singleVal < 58 && singleVal > 47)) {
-            finalHashArr[finalHashCounter] = String.fromCharCode(singleVal);
-            finalHashCounter++;
+            finalHash += String.fromCharCode(singleVal);
         }
-    }
-
-    // Forming single finalHash string from finalHashArr indices
-    let i = 0;
-    while(finalHash.length < 300) {
-        finalHash += finalHashArr[i];
-        i++;
     }
 
     /*
