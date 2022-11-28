@@ -175,15 +175,15 @@ class HashTable {
             knowledge, it will not interfere with the security of the sessionKeyGenerator function or the 
             keyBits stream. The one can be compromised without necessarily compromising the other.
         */
-        const keyBits = [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1];
+        const keyBits = [0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1];
         
         const finalKeyStream = [];
         const cipherBitArr = [];
         let initialKeyBitXOR = 0;
 
-        // LFSR with tap (XOR) bits at position 1 and position 3rd to last of the keyBits array
-        for(let i = 0; i < 600; i++) {
-            initialKeyBitXOR = keyBits[2] ^ keyBits[keyBits.length - 3];
+        // LFSR with tap (XOR) bits at position 2 and position 3rd to last of the keyBits array
+        for(let i = 0; i < 700; i++) {
+            initialKeyBitXOR = keyBits[1] ^ keyBits[keyBits.length - 3];
             keyBits.unshift(initialKeyBitXOR);
             finalKeyStream[i] = keyBits.pop();
         }
