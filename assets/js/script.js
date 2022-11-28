@@ -44,6 +44,9 @@ let backstepEl = "";
         parties (source for the above information and quote: 
         https://www2.lbl.gov/Science-Articles/Archive/pi-random.html).
 
+    Is pi the only normal number that could've been used for this application?
+        Not at all. For example, Euler's number (e) could've been used instead.
+
     Why not use a dedicated library to generate a random number instead, or a cryptographically 
     secure online random number generator?
         Either one of these methods would produce a different value with each function call. They can be 
@@ -171,8 +174,8 @@ class HashTable {
             Random (atmospheric noise) initial 64 bits provided by https://www.random.org/bytes/. 
             Because both mathematical and array operations are being performed on these values, it is not 
             stored as a string like pi was above. If necessary a new string of key bits can be easily 
-            generated and, unlike pi, can be called truly random. Even if the use of pi for the salting 
-            algorithm becomes public knowledge, it will not interfere with the security of the 
+            generated and, unlike pi, can be called random in its traditional sense. Even if the use of pi for 
+            the salting algorithm becomes public knowledge, it will not interfere with the security of the 
             sessionKeyGenerator function or the keyBits stream. The one can be compromised without 
             necessarily compromising the other.
         */
